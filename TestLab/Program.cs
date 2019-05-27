@@ -14,6 +14,9 @@ namespace TestLab
             Console.WriteLine(person.Cpr);
             Console.WriteLine(person.Birthday.ToShortDateString());
             Console.WriteLine(person.IsWoman);
+
+            Field f = new Field();
+            Console.WriteLine(f.Area);
         }
     }
 }
