@@ -43,6 +43,14 @@ namespace OopLearning.BL
             set
             {
                 var cropCheck = ValidateCrop(value);
+                if (cropCheck.IsValid)
+                {
+                    crop = value;
+                }
+                else
+                {
+                    throw new ArgumentException(cropCheck.errMessage, nameof(crop));
+                }
             }
         }
         public double Area {
@@ -61,15 +69,15 @@ namespace OopLearning.BL
         public double Yield {
             get
             {
-                switch (Crop)
+                switch (Crop.ToLower())
                 {
-                    case "Wheat":
+                    case "wheat":
                         return (Area / 100) * 2;
-                    case "Potatoes":
+                    case "potatoes":
                         return (Area / 100) * 4;
-                    case "Oat":
+                    case "oat":
                         return (Area / 200) * 3;
-                    case "Carrots":
+                    case "carrots":
                         return (Area / 30) * 3;
                     default:
                         return 0;
@@ -82,13 +90,11 @@ namespace OopLearning.BL
         {
 
         }
-        public Field(double width, double length, string crop, double area, double yield)
+        public Field(double width, double length, string crop)
         {
             Width = width;
             Length = length;
             Crop = crop;
-            Area = area;
-            Yield = yield;
         }
 
         public static (bool IsValid, string errMessage) ValidateCrop(string value)
