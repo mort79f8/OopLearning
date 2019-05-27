@@ -104,7 +104,7 @@ namespace OopLearning.BL
                 return (false, "length eller width er 0");
             }
 
-            if (value == "Potatoes" || value == "Wheat" || value == "Oat" || value == "Carrots")
+            if (value.ToLower() == "potatoes" || value == "wheat" || value == "oat" || value == "carrots")
             {
                 return (true, "");
             }
