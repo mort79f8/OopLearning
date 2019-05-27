@@ -56,6 +56,10 @@ namespace OopLearning.BL
             }
         }
 
+        public Account()
+        {
+
+        }
         public Account(string accountNumber, string departmentNumber, decimal balance)
         {
             AccountNumber = accountNumber;

@@ -38,9 +38,29 @@ namespace OopLearning.BL
                 }
             }
         }
-        public string Crop { get => crop; set => crop = value; }
+        public string Crop {
+            get => crop;
+            set
+            {
+                var cropCheck = ValidateCrop(value);
+            }
+        }
         public double Area { get; }
         public double Yield { get; }
+
+        public Field()
+        {
+
+        }
+        public Field(double width, double length, string crop, double area, double yield)
+        {
+            Width = width;
+            Length = length;
+            Crop = crop;
+            Area = area;
+            Yield = yield;
+        }
+
 
     }
 }
