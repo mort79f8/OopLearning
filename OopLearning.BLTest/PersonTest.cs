@@ -37,9 +37,9 @@ namespace OopLearning.BLTest
         {
             //Arrange
             Person correctName = new Person();
+            correctName.Name = "Daniel Efternavn";
 
             //Act
-            correctName.Name = "Daniel Efternavn";
             string expectedName = correctName.Name;
 
             //Assert
@@ -94,6 +94,70 @@ namespace OopLearning.BLTest
 
             //Act - Assert
             Assert.Throws<ArgumentException>( () => person.Birthday);
+        }
+
+        [Fact]
+        public void ValidateCpr_ValidValuesShouldReturnTrue()
+        {
+            // Arrange
+            string correctCpr = "2108761353";
+
+            // Act
+            (bool isValid, string errMsg) = Person.ValidateCpr(correctCpr);
+
+            //Assert
+            Assert.True(isValid, $"{correctCpr} should be valid");
+        }
+
+        [Fact]
+        public void ValidCpr_InvalidValuesShouldReturnFalse()
+        {
+            // Arrange
+            string incorrectCpr = "21761353";
+
+            // Act
+            (bool isValid, string errMsg) = Person.ValidateCpr(incorrectCpr);
+
+            //Assert
+            Assert.False(isValid, $"{incorrectCpr} should be valid");
+        }
+
+        [Fact]
+        public void SetCpr_ValidValuesShouldNotBeChanged()
+        {
+            //Arrange
+            Person correctCpr = new Person();
+            correctCpr.Cpr = "2108761353";
+
+            //Act
+            string expectedCpr = correctCpr.Cpr;
+
+            //Assert
+            Assert.Equal(expectedCpr, correctCpr.Cpr);
+        }
+
+        [Fact]
+        public void SetCpr_InvalidValuesShouldCastArgumentException()
+        {
+            //Arrange
+            Person incorrectCpr = new Person();
+
+            //Act
+            Assert.Throws<ArgumentException>(() => incorrectCpr.Cpr = "218761353");
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("000876135320")]
+        [InlineData("0008761353")]
+        [InlineData("210 8761353")]
+        public void SetCpr_AllInvalidValuesShouldCastArgumentException(string cpr)
+        {
+            //Arrange
+            Person incorrectCpr = new Person();
+
+            //Act
+            Assert.Throws<ArgumentException>(() => incorrectCpr.Cpr = cpr);
         }
     }
 }

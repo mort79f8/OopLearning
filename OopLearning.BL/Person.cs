@@ -129,7 +129,7 @@ namespace OopLearning.BL
 
             }
 
-            if (int.Parse(cpr.Substring(4, 2)) < 0 || int.Parse(cpr.Substring(4, 2)) > 99)
+            if (int.Parse(cpr.Substring(4, 2)) <= 0 || int.Parse(cpr.Substring(4, 2)) > 99)
             {
                 return (false, "års talet er ikke en gyldig fødselsdato");
             }
