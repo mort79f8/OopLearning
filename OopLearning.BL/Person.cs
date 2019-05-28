@@ -5,9 +5,27 @@ namespace OopLearning.BL
     public class Person
     {
         private string name;
-        private string cpr;
+        private string cpr = "";
 
-        public string Cpr {
+        public string Name
+        {
+            get => name;
+            set
+            {
+                var nameCheck = ValidateName(value);
+                if (nameCheck.isValid)
+                {
+                    name = value;
+                }
+                else
+                {
+                    throw new ArgumentException(nameCheck.errMsg, nameof(name));
+                }
+            }
+        }
+
+        public string Cpr
+        {
             get => cpr;
             set
             {
@@ -22,17 +40,29 @@ namespace OopLearning.BL
                 }
             }
         }
-        public DateTime Birthday {
+        public DateTime Birthday
+        {
             get
             {
-                DateTime.TryParse(Cpr.Substring(0, 2) + "-" + Cpr.Substring(2, 2) + "-" + Cpr.Substring(4, 2), out DateTime convertedCpr);
-                return convertedCpr;
+                if (cpr != null && cpr.Length >= 6)
+                {
+                    bool isValid = DateTime.TryParse(Cpr.Substring(0, 2) + "-" + Cpr.Substring(2, 2) + "-" + Cpr.Substring(4, 2), out DateTime convertedCpr);
+
+                    if (isValid)
+                    {
+                        return convertedCpr;
+                    }
+
+                }
+
+                throw new ArgumentException("Cpr is ikke sat, eller er ikke korrekt");
             }
         }
-        public bool IsWoman {
+        public bool IsWoman
+        {
             get
             {
-                if ((int.Parse(Cpr.Substring(9,1)) % 2) > 0)
+                if ((int.Parse(Cpr.Substring(9, 1)) % 2) > 0)
                 {
                     return false;
                 }
@@ -43,7 +73,7 @@ namespace OopLearning.BL
             }
         }
 
-        public Person ()
+        public Person()
         {
 
         }
@@ -53,23 +83,9 @@ namespace OopLearning.BL
             Cpr = cpr;
         }
 
-        public string Name {
-            get => name;
-            set
-            {
-                var nameCheck = ValidateName(value);
-                if (nameCheck.IsValid)
-                {
-                    name = value;
-                }
-                else
-                {
-                    throw new ArgumentException(nameCheck.errMsg, nameof(name));
-                }
-            }
-        }
 
-        public static (bool IsValid, string errMsg) ValidateName(string name)
+
+        public static (bool isValid, string errMsg) ValidateName(string name)
         {
             if (name is null)
             {
@@ -101,13 +117,13 @@ namespace OopLearning.BL
             {
                 return (false, "cpr er tomt, husk og udfyld den");
             }
-            
+
             if (cpr.Length != 10)
             {
                 return (false, "cpr er ikke udfylt korrekt, formatet skal være dagmånedårdesidstefire eks: 2108765785");
             }
 
-            if (int.Parse(cpr.Substring(0,2)) < 1 || int.Parse(cpr.Substring(2, 2)) > 31)
+            if (int.Parse(cpr.Substring(0, 2)) < 1 || int.Parse(cpr.Substring(2, 2)) > 31)
             {
                 return (false, "de 4 første tal er ikke en gyldig fødselsdato");
 
