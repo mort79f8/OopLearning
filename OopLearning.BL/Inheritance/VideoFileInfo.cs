@@ -15,7 +15,7 @@ namespace OopLearning.BL.Inheritance
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"Video: {FileName}";
         }
     }
 }
