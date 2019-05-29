@@ -150,7 +150,14 @@ namespace OopLearning.BL
         {
             if (other is null) return 1;
 
-            return Name.CompareTo(other.Name);
+            if (Name.CompareTo(other.Name) == 0)
+            {
+                return Cpr.CompareTo(other.Cpr);
+            }
+            else
+            {
+                return Name.CompareTo(other.Name);
+            }           
         }
     }
 }

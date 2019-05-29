@@ -194,21 +194,23 @@ namespace OopLearning.BLTest
             //Arrange
             List<Person> personList = new List<Person>()
             {
-                new Person("Jens Larsen"),            
-                new Person("Ib Jensen"),
-                new Person("Kian Hiphurra"),
-                new Person("Anton Søvning"),
-                new Person("Morten juul")
+                new Person("Kian Hiphurra", "0102001599"),
+                new Person("Jens Larsen", "2105805326"),            
+                new Person("Ib Jensen", "0508001548"),
+                new Person("Kian Hiphurra", "0101001599"),
+                new Person("Anton Søvning", "0202025564"),
+                new Person("Morten juul", "2108761353")
             };
 
             //Act
             List<Person> ExpectedList = new List<Person>()
             {
-                new Person("Anton Søvning"),
-                new Person("Ib Jensen"),
-                new Person("Jens Larsen"),
-                new Person("Kian Hiphurra"),
-                new Person("Morten juul")
+                new Person("Anton Søvning", "0202025564"),
+                new Person("Ib Jensen", "0508001548"),
+                new Person("Jens Larsen", "2105805326"),
+                new Person("Kian Hiphurra", "0101001599"),
+                new Person("Kian Hiphurra", "0102001599"),
+                new Person("Morten juul", "2108761353")
             };
             personList.Sort();
 
