@@ -77,11 +77,11 @@ namespace OopLearning.BL
         {
 
         }
-        public Person(string name, string cpr)
-        {
-            Name = name;
-            Cpr = cpr;
-        }
+        //public Person(string name, string cpr)
+        //{
+        //    Name = name;
+        //    Cpr = cpr;
+        //}
 
 
 
@@ -126,10 +126,9 @@ namespace OopLearning.BL
             if (int.Parse(cpr.Substring(0, 2)) < 1 || int.Parse(cpr.Substring(2, 2)) > 31)
             {
                 return (false, "de 4 første tal er ikke en gyldig fødselsdato");
-
             }
 
-            if (int.Parse(cpr.Substring(4, 2)) <= 0 || int.Parse(cpr.Substring(4, 2)) > 99)
+            if (int.Parse(cpr.Substring(4, 2)) < 0 || int.Parse(cpr.Substring(4, 2)) > 99)
             {
                 return (false, "års talet er ikke en gyldig fødselsdato");
             }

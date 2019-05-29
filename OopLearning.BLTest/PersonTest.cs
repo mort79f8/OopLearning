@@ -151,6 +151,7 @@ namespace OopLearning.BLTest
         [InlineData("000876135320")]
         [InlineData("0008761353")]
         [InlineData("210 8761353")]
+        [InlineData("2108221353")]
         public void SetCpr_AllInvalidValuesShouldCastArgumentException(string cpr)
         {
             //Arrange
@@ -158,6 +159,32 @@ namespace OopLearning.BLTest
 
             //Act
             Assert.Throws<ArgumentException>(() => incorrectCpr.Cpr = cpr);
+        }
+
+        [Fact]
+        public void IsWoman_ValidCprShouldReturnTrue()
+        {
+            //Arrange
+            Person correctCprForWoman = new Person();
+            correctCprForWoman.Cpr = "2108761354";
+
+            //Act
+
+            //Assert
+            Assert.True(correctCprForWoman.IsWoman);
+        }
+
+        [Fact]
+        public void IsWoman_InvalidCprShouldReturnFalse()
+        {
+            //Arrange
+            Person incorrectCprForWoman = new Person();
+            incorrectCprForWoman.Cpr = "2108761353";
+
+            //Act
+
+            //Assert
+            Assert.False(incorrectCprForWoman.IsWoman);
         }
     }
 }
