@@ -2,7 +2,7 @@
 
 namespace OopLearning.BL
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         private string name;
         private string cpr = "";
@@ -141,5 +141,11 @@ namespace OopLearning.BL
             return (true, "");
         }
 
+        public int CompareTo(Person other)
+        {
+            if (other is null) return 1;
+
+            return Name.CompareTo(other.Name);
+        }
     }
 }
