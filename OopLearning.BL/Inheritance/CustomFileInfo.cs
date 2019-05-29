@@ -17,7 +17,7 @@ namespace OopLearning.BL.Inheritance
             creationTime = creation;
         }
 
-        public bool IsSizeTooLarge()
+        public virtual bool IsSizeTooLarge()
         {
             return "not definded yet"
 
