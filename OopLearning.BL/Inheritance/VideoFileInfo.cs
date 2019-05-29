@@ -8,9 +8,9 @@ namespace OopLearning.BL.Inheritance
     {
         private int duration;
 
-        public VideoFileInfo(string name, int size, DateTime creation, int myWidth, int myHeigth, int myDuration) : base(name, size, creation, myWidth, myHeigth)
+        public VideoFileInfo(string name, int size, DateTime creation, int width, int heigth, int duration) : base(name, size, creation, width, heigth)
         {
-            duration = myDuration;
+            this.duration = duration;
         }
 
         public override string ToString()

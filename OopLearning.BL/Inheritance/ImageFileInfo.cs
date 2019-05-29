@@ -9,10 +9,10 @@ namespace OopLearning.BL.Inheritance
         protected int width;
         protected int heigth;
 
-        public ImageFileInfo(string name, int size, DateTime creation, int myWidth, int myHeigth) : base(name, size, creation)
+        public ImageFileInfo(string name, int size, DateTime creation, int width, int heigth) : base(name, size, creation)
         {
-            width = myHeigth;
-            heigth = myHeigth;
+            this.width = width;
+            this.heigth = heigth;
         }
 
         public override bool IsSizeTooLarge()
