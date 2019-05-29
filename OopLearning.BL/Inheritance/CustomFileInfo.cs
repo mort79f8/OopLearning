@@ -10,6 +10,10 @@ namespace OopLearning.BL.Inheritance
         protected int fileSize;
         protected DateTime creationTime;
 
+        public string FileName { get => fileName; set => fileName = value; }
+        public int FileSize { get => fileSize; set => fileSize = value; }
+        public DateTime CreationTime { get => creationTime; set => creationTime = value; }
+
         protected CustomFileInfo(string name, int size, DateTime creation)
         {
             fileName = name;
@@ -19,13 +23,16 @@ namespace OopLearning.BL.Inheritance
 
         public virtual bool IsSizeTooLarge()
         {
-            return "not definded yet"
-
+            if (FileSize > 45)
+            {
+                return true;
+            }
+            return false;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{FileName}";
         }
 
     }

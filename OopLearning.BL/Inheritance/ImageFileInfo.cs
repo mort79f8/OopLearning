@@ -17,7 +17,11 @@ namespace OopLearning.BL.Inheritance
 
         public override bool IsSizeTooLarge()
         {
-            return "not Definded yet"
+            if (base.IsSizeTooLarge() || width > 1920 || heigth > 1080)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
