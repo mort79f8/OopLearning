@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OopLearning.BL.Inheritance
 {
-    abstract class CustomFileInfo
+    public abstract class CustomFileInfo
     {
         protected string fileName;
         protected int fileSize;

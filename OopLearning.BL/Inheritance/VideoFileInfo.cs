@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OopLearning.BL.Inheritance
 {
-    class VideoFileInfo : ImageFileInfo
+    public class VideoFileInfo : ImageFileInfo
     {
         private int duration;
 

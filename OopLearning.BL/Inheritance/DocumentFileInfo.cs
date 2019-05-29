@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OopLearning.BL.Inheritance
 {
-    class DocumentFileInfo : CustomFileInfo
+    public class DocumentFileInfo : CustomFileInfo
     {
         public DocumentFileInfo(string name, int size, DateTime creation) : base(name, size, creation)
         {
