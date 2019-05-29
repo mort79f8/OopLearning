@@ -77,11 +77,16 @@ namespace OopLearning.BL
         {
 
         }
-        //public Person(string name, string cpr)
-        //{
-        //    Name = name;
-        //    Cpr = cpr;
-        //}
+        public Person(string name)
+        {
+            Name = name;
+        }
+
+        public Person(string name, string cpr)
+        {
+            Name = name;
+            Cpr = cpr;
+        }
 
 
 

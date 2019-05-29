@@ -1,5 +1,6 @@
 using OopLearning.BL;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace OopLearning.BLTest
@@ -185,6 +186,34 @@ namespace OopLearning.BLTest
 
             //Assert
             Assert.False(incorrectCprForWoman.IsWoman);
+        }
+
+        [Fact]
+        public void CompareTo_RandomListOfNameShouldReturnSortedList()
+        {
+            //Arrange
+            List<Person> personList = new List<Person>()
+            {
+                new Person("Jens Larsen"),            
+                new Person("Ib Jensen"),
+                new Person("Kian Hiphurra"),
+                new Person("Anton Søvning"),
+                new Person("Morten juul")
+            };
+
+            //Act
+            List<Person> ExpectedList = new List<Person>()
+            {
+                new Person("Anton Søvning"),
+                new Person("Ib Jensen"),
+                new Person("Jens Larsen"),
+                new Person("Kian Hiphurra"),
+                new Person("Morten juul")
+            };
+            personList.Sort();
+
+            //Assert
+            Assert.Equal(ExpectedList, personList);
         }
     }
 }
