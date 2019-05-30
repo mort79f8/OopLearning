@@ -203,7 +203,7 @@ namespace OopLearning.BLTest
             };
 
             //Act
-            List<Person> ExpectedList = new List<Person>()
+            List<Person> expectedList = new List<Person>()
             {
                 new Person("Anton Søvning", "0202025564"),
                 new Person("Ib Jensen", "0508001548"),
@@ -215,7 +215,7 @@ namespace OopLearning.BLTest
             personList.Sort();
 
             //Assert
-            Assert.Equal(ExpectedList, personList);
+            Assert.Equal(expectedList, personList);
         }
     }
 }
