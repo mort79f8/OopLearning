@@ -10,17 +10,17 @@ namespace OopLearning.ConsoleProject
         static Random rngNum = new Random();
         public static DocumentFileInfo CreateDocumentFileInfo()
         {
-            return new DocumentFileInfo("documentNumber" + rngNum.Next(1,1000), rngNum.Next(1,40),  new DateTime(2019, 05, 29));
+            return CreateDocumentFileInfo(CreateRandomFileSize());
         }
 
         public static DocumentFileInfo CreateDocumentFileInfo(int fileSize)
         {
-            return new DocumentFileInfo("documentNumber" + rngNum.Next(1, 1000), fileSize, new DateTime(2019, 05, 29));
+            return CreateDocumentFileInfo(fileSize, CreateRandomDate());
         }
 
         public static DocumentFileInfo CreateDocumentFileInfo(int fileSize, DateTime creationTime)
         {
-            return new DocumentFileInfo("documentNumber" + rngNum.Next(1, 1000), fileSize, creationTime);
+            return new DocumentFileInfo(CreateRandomFilename(), fileSize, creationTime);
         }
 
         public static ImageFileInfo CreateImageFileInfo()
@@ -73,6 +73,21 @@ namespace OopLearning.ConsoleProject
                 }
             }
             return listOfRandomFiles;
+        }
+
+        private static DateTime CreateRandomDate()
+        {
+            return DateTime.Now;
+        }
+
+        private static string CreateRandomFilename()
+        {
+            return "Random";
+        }
+
+        private static int CreateRandomFileSize()
+        {
+            return 15;
         }
     }
 }
