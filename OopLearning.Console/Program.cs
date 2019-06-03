@@ -23,11 +23,11 @@ namespace OopLearning.ConsoleProject
                     case DocumentFileInfo d:
                         numberOfDocuments++;
                         break;
-                    case ImageFileInfo i:
-                        numberOfImages++;
-                        break;
                     case VideoFileInfo v:
                         numberOfVideos++;
+                        break;
+                    case ImageFileInfo i:
+                        numberOfImages++;
                         break;
                     default:
                         break;
