@@ -77,17 +77,17 @@ namespace OopLearning.ConsoleProject
 
         private static DateTime CreateRandomDate()
         {
-            return DateTime.Now;
+            return new DateTime(rngNum.Next(1980, 2020), rngNum.Next(1, 13), rngNum.Next(1, 28));
         }
 
         private static string CreateRandomFilename()
         {
-            return "Random";
+            return $"Document" + rngNum.Next(1, 10000);
         }
 
         private static int CreateRandomFileSize()
         {
-            return 15;
+            return rngNum.Next(1,40);
         }
     }
 }
